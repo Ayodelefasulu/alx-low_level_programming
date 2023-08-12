@@ -1,2 +1,1 @@
-# alx-low_level_programming
-Started c programming, welcome to hello world
+this is readme for low level programming repo
