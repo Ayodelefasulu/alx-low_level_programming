@@ -7,16 +7,16 @@
  */
 int main(void)
 {
-	char digit;
-
-	for (digit = '0'; digit <= '9'; digit++)
+	int num;
+	for (num = 0; num < 10; num++)
 	{
-		putchar(digit);
-	}
+		putchar(num + '0');
 
-	for (digit = 'a'; digit <= 'f'; digit++)
-	{
-		putchar(digit);
+		 if (num != 9)
+			{
+				putchar(',');
+				putchar(' ');
+			}
 	}
 
 	putchar('\n');
