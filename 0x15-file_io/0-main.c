@@ -4,6 +4,8 @@
 
 /**
  * main - check the code
+ * @ac: arg counts
+ * @av: arg value
  *
  * Return: Always 0.
  */
