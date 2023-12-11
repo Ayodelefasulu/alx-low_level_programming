@@ -1,1 +1,1 @@
-this is readme for low level programming repo
+readme for file input and output
