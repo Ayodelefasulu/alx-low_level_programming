@@ -6,10 +6,11 @@
  * hash_table_set - Adds an element to the hash table.
  * @ht: The hash table to add/update the key/value pair.
  * @key: The key (cannot be an empty string).
- * @value: The value associated with the key (duplicated, can be an empty string).
+ * @value: The value associated with key (duplicated, can be an empty string).
  *
  * Return: 1 if successful, 0 otherwise.
  */
+int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *new_node, *current;
@@ -26,7 +27,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			/* Key found, update the value */
 			free(current->value);  /* Free existing value */
-			current->value = strdup(value);  /* Duplicate and set new value */
+			current->value = strdup(value);  /* Dupl. and set new value */
 			if (current->value == NULL)
 				return (0);
 			return (1);
@@ -34,7 +35,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		current = current->next;
 	}
 
-	/* Key not found, create a new node and add it to the beginning of the list */
+	/* Key not found, create a new node and add it to the beginning of list */
 	new_node = malloc(sizeof(hash_node_t));
 	if (new_node == NULL)
 		return (0);
