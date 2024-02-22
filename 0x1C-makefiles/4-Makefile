@@ -1,0 +1,53 @@
+# Compiler
+CC = gcc
+
+# Compiler flags
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Source files
+SRC = $(wildcard *.c)
+
+# Object files (generated from source files)
+OBJ = $(SRC:.c=.o)
+
+# Executable name
+NAME = school
+
+# Program to delete files
+RM = rm -f
+
+# Rule: all
+# The all rule builds the executable 'school'
+all: $(NAME)
+
+# Target: $(NAME) (executable)
+# Dependencies: $(OBJ)
+# Recipe: Compile $(OBJ) into the 'school' executable
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $@
+
+# Rule to compile each source file into object files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Rule: clean
+# Deletes all Emacs and Vim temporary files along with the executable
+clean:
+	$(RM) *~ $(NAME)
+
+# Rule: oclean
+# Deletes the object files
+oclean:
+	$(RM) $(OBJ)
+
+# Rule: fclean
+# Deletes all Emacs and Vim temporary files, the executable, and the object files
+fclean: clean oclean
+
+# Rule: re
+# Forces recompilation of all source files
+re: oclean all
+
+# Ensure that clean, oclean, fclean, and re rules never fail
+.PHONY: clean oclean fclean re
+
