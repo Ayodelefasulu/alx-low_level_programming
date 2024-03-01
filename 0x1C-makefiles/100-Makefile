@@ -26,12 +26,12 @@ $(NAME): $(OBJ)
 # Rule: clean
 # Deletes all Emacs and Vim temporary files along with the executable
 clean:
-	@$(RM) *~ $(NAME)
+	$(RM) *~ $(NAME)
 
 # Rule: oclean
 # Deletes the object files
 oclean:
-	@$(RM) $(OBJ)
+	$(RM) $(OBJ)
 
 # Rule: fclean
 # Deletes all Emacs and Vim temporary files, the executable, and the object files
@@ -49,4 +49,3 @@ $(OBJ): m.h
 
 # Use RM twice as per requirement
 RM = rm -f
-
