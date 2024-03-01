@@ -1,14 +1,14 @@
 # Compiler
-CC = gcc
+CC := gcc
 
 # Source files
-SRC = main.c school.c
+SRC := main.c school.c
 
 # Object files (generated from source files)
-OBJ = $(SRC:.c=.o)
+OBJ := $(SRC:.c=.o)
 
 # Executable name
-NAME = school
+NAME := school
 
 # Flags
 CFLAGS := -Wall -Werror -Wextra -pedantic
@@ -36,7 +36,7 @@ oclean:
 # Rule: fclean
 # Deletes all Emacs and Vim temporary files, the executable, and the object files
 fclean: clean oclean
-
+	$(RM) $(NAME)
 # Rule: re
 # Forces recompilation of all source files
 re: fclean all
