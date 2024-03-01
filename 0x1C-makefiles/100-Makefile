@@ -13,6 +13,8 @@ NAME := school
 # Flags
 CFLAGS := -Wall -Werror -Wextra -pedantic
 
+# Remove varibale
+RM := rm -f
 # Rule: all
 # The all rule builds the executable 'school'
 all: $(NAME)
@@ -21,7 +23,7 @@ all: $(NAME)
 # Dependencies: $(OBJ)
 # Recipe: Compile $(OBJ) into the 'school' executable
 $(NAME): $(OBJ)
-	$(CC) -o $@ $(OBJ)
+	$(CC) $(OBJ) -o $@
 
 # Rule: clean
 # Deletes all Emacs and Vim temporary files along with the executable
