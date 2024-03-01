@@ -1,20 +1,18 @@
 # Compiler
-CC := gcc
+CC = gcc
 
 # Source files
-SRC := main.c school.c
+SRC = main.c school.c
 
 # Object files (generated from source files)
-OBJ := $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 # Executable name
-NAME := school
+NAME = school
 
 # Flags
 CFLAGS := -Wall -Werror -Wextra -pedantic
 
-# Remove varibale
-RM := rm -f
 # Rule: all
 # The all rule builds the executable 'school'
 all: $(NAME)
@@ -28,17 +26,17 @@ $(NAME): $(OBJ)
 # Rule: clean
 # Deletes all Emacs and Vim temporary files along with the executable
 clean:
-	$(RM) *~ $(NAME)
+	-$(RM) *~ $(NAME)
 
 # Rule: oclean
 # Deletes the object files
 oclean:
-	$(RM) $(OBJ)
+	-$(RM) $(OBJ)
 
 # Rule: fclean
 # Deletes all Emacs and Vim temporary files, the executable, and the object files
 fclean: clean oclean
-	$(RM) $(NAME)
+
 # Rule: re
 # Forces recompilation of all source files
 re: fclean all
@@ -48,6 +46,3 @@ re: fclean all
 
 # Dependency check for header file m.h
 $(OBJ): m.h
-
-# Use RM twice as per requirement
-RM = rm -f
